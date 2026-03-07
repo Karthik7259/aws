@@ -4,11 +4,13 @@ runtime: python3
 
 build:
   commands:
-    build:
+    pre-build:
       - pip install --upgrade pip
+    build:
       - pip install -r requirements.txt
+      - npm install
 
 run:
   command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
-    port: 8000a
+    port: 8000
