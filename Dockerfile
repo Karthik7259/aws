@@ -5,13 +5,13 @@ WORKDIR /app
 # Install uv
 RUN pip install uv
 
-# Copy dependency files first
+# Copy dependency files first (for Docker layer caching)
 COPY pyproject.toml uv.lock ./
 
 # Install dependencies
-RUN uv sync
+RUN uv sync --no-dev
 
-# Copy rest of code
+# Copy application code
 COPY . .
 
 EXPOSE 8000
