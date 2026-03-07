@@ -12,6 +12,3 @@ run:
   command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   network:
     port: 8000
-  env:
-    - name: DATABASE_URL
-      value: postgresql+psycopg2://grievance_admin:grievance_admin_password@grievance-db.cluster-cet6kaem0xnb.us-east-1.rds.amazonaws.com:5432/grievance_mitra
